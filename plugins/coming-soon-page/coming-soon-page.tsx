@@ -1,11 +1,11 @@
-import { GlueContext } from "../../src/react/GlueContext";
+import { PluginContext } from "../../src/react/PluginContext";
 import { useContext } from "react";
 
 function ComingSoonPage({ caption }: { caption: string }) {
-  const { glue } = useContext(GlueContext);
-  if (!glue) return <div>Glue not found</div>;
+  const { pluginSystem } = useContext(PluginContext);
+  if (!pluginSystem) return <div>PluginSystem not found</div>;
 
-  const { ShareButton } = glue.getAllComponents();
+  const { ShareButton } = pluginSystem.getAllComponents();
 
   return (
     <div style={{ textAlign: "center" }}>

@@ -1,6 +1,6 @@
-import { Glue } from "../../Glue";
+import { PluginSystem } from "../../PluginSystem";
 
 export interface IPlugin {
-  app: Glue;
+  pluginSystem: PluginSystem;
   boot(): void;
 }

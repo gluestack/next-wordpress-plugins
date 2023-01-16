@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { GlueContext } from "../src/react/GlueContext";
+import { PluginContext } from "../src/react/PluginContext";
 
 export default function Home() {
-  const { glue } = useContext(GlueContext);
+  const { pluginSystem } = useContext(PluginContext);
 
   return (
     <>

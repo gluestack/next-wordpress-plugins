@@ -1,4 +1,4 @@
-import { Glue } from "@/src/Glue";
+import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
 
 import ComingSoonPage from "./coming-soon-page";
@@ -7,14 +7,14 @@ class ComingSoonPagePlugin implements IPlugin {
   name = "coming-soon-page-plugin";
   version = "0.0.1";
 
-  app: Glue;
+  pluginSystem: PluginSystem;
 
-  constructor(app: Glue) {
-    this.app = app;
+  constructor(pluginSystem: PluginSystem) {
+    this.pluginSystem = pluginSystem;
   }
 
   async boot() {
-    this.app.registerRoute({
+    this.pluginSystem.registerRoute({
       route: "/coming-soon",
       component: ComingSoonPage,
     });

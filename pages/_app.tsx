@@ -1,12 +1,12 @@
-import { GlueContext } from "../src/react/GlueContext";
+import { PluginContext } from "../src/react/PluginContext";
 import type { AppProps } from "next/app";
 
-import glue from "../bootstrap";
+import pluginSystem from "../bootstrap";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <GlueContext.Provider value={{ glue }}>
+    <PluginContext.Provider value={{ pluginSystem: pluginSystem }}>
       <Component {...pageProps} />
-    </GlueContext.Provider>
+    </PluginContext.Provider>
   );
 }

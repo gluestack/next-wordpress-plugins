@@ -5,7 +5,7 @@ import ComponentStore from "./plugin-system/core/ComponentStore";
 import { IComponentDefinition } from "./plugin-system/core/IComponentDefinition";
 import { IRouteDefinition } from "./plugin-system/core/IRouteDefinition";
 
-export class Glue {
+export class PluginSystem {
   pluginStore: PluginStore;
   componentStore: ComponentStore;
   routeStore: RouteStore;

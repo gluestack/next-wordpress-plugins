@@ -1,13 +1,13 @@
-import { Glue } from "./src/Glue";
+import { PluginSystem } from "./src/PluginSystem";
 
 import plugins from "./plugins";
 
-const glue = new Glue();
+const pluginSystem = new PluginSystem();
 
 plugins.forEach((plugin: any) => {
-  glue.registerPlugin(plugin);
+  pluginSystem.registerPlugin(plugin);
 });
 
-glue.bootPlugins();
+pluginSystem.bootPlugins();
 
-export default glue;
+export default pluginSystem;

@@ -1,4 +1,4 @@
-import { Glue } from "@/src/Glue";
+import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
 
 import ShareButton from "./share-button";
@@ -7,14 +7,14 @@ class ShareButtonPlugin implements IPlugin {
   name = "share-button-plugin";
   version = "0.0.1";
 
-  app: Glue;
+  pluginSystem: PluginSystem;
 
-  constructor(app: Glue) {
-    this.app = app;
+  constructor(pluginSystem: PluginSystem) {
+    this.pluginSystem = pluginSystem;
   }
 
   async boot() {
-    this.app.registerComponent({
+    this.pluginSystem.registerComponent({
       name: "ShareButton",
       component: ShareButton,
     });
