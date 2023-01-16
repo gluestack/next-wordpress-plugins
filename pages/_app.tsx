@@ -1,4 +1,4 @@
-import { GlueContext } from "../glue/react/GlueContext";
+import { GlueContext } from "../src/react/GlueContext";
 import type { AppProps } from "next/app";
 
 import glue from "../bootstrap";

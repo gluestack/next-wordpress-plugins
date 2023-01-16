@@ -1,4 +1,4 @@
-import { Glue } from "./glue/Glue";
+import { Glue } from "./src/Glue";
 
 import plugins from "./plugins";
 

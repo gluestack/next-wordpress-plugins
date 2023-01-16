@@ -1,4 +1,4 @@
-import { GlueContext } from "../../glue/react/GlueContext";
+import { GlueContext } from "../../src/react/GlueContext";
 import { useContext } from "react";
 
 function ComingSoonPage({ caption }: { caption: string }) {

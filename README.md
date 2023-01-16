@@ -1,6 +1,6 @@
 # Next.js WordPress-like Plugin System
 
-> This is an experimental project, a proof-of-concept to bring WordPress like, file-based plugins to Next.js.
+> ⚠️⚠️ This is an experimental project, a proof-of-concept to bring WordPress like, file-based plugins to Next.js.
 
 ## Why?
 
@@ -28,7 +28,7 @@ This is a very early experiment that has two plugins
 
 ```
 bootstrap.ts
-glue/
+src/
 plugins/
     share-button/
     coming-soon-page/
@@ -39,7 +39,7 @@ pages/
 ```
 Note:
 - bootstrap.ts is used to initialize the plugin-system
-- glue folder contains the source code of the plugin-system
+- src folder contains the source code of the plugin-system
 - plugins folder contains the individual plugin folders
 - pages folder contains the dynamically rendered routes registered by the plugins
 ```

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { GlueContext } from "../glue/react/GlueContext";
+import { GlueContext } from "../src/react/GlueContext";
 
 export default function Home() {
   const { glue } = useContext(GlueContext);

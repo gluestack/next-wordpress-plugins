@@ -1,5 +1,5 @@
-import { Glue } from "@/glue/Glue";
-import { IPlugin } from "../../glue/plugin-system/core/IPlugin";
+import { Glue } from "@/src/Glue";
+import { IPlugin } from "../../src/plugin-system/core/IPlugin";
 
 import ComingSoonPage from "./coming-soon-page";
 
