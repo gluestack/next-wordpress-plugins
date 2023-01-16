@@ -1,5 +1,7 @@
 function ShareButton({ caption }: { caption: string }) {
-  return <button>Share this</button>;
+  return (
+    <button style={{ fontSize: "24px", padding: "16px" }}>Share this</button>
+  );
 }
 
 export default ShareButton;

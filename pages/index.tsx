@@ -4,11 +4,11 @@ import { GlueContext } from "../src/react/GlueContext";
 export default function Home() {
   const { glue } = useContext(GlueContext);
 
-  console.log(glue);
-
   return (
     <>
-      <h1>Test</h1>
+      <h1 style={{ fontFamily: "sans-serif", textAlign: "center" }}>
+        Next.js Wordpress-like plugin system: An experiment
+      </h1>
     </>
   );
 }

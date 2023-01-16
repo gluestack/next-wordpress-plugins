@@ -8,8 +8,10 @@ function ComingSoonPage({ caption }: { caption: string }) {
   const { ShareButton } = glue.getAllComponents();
 
   return (
-    <div>
-      <div>Coming soon</div>
+    <div style={{ textAlign: "center" }}>
+      <h1 style={{ fontFamily: "sans-serif", textAlign: "center" }}>
+        Coming soon
+      </h1>
       <ShareButton />
     </div>
   );

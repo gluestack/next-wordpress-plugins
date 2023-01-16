@@ -4,7 +4,11 @@
 
 ## Why?
 
-Taking inspirations from the WordPress Plugin system. Wouldn't it be easy if we could install plugins for Google Analytics, Social Login, E-commerce (maybe) and customize as you need!
+Taking inspirations from the WordPress Plugin system. Wouldn't it be easy if we could install plugins for **Google Analytics**, **Social Login**, **E-commerce** (maybe) and customize as you need!
+
+## Demo
+
+[![Next.js WordPress-like Plugin System](screencast/screencast.png)](https://www.loom.com/share/5354c3e306cb41ec92daa4b00130c5bd "Next.js WordPress-like Plugin System")
 
 ## The checklist (from WordPress)
 
