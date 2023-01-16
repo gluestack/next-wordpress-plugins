@@ -1,4 +1,4 @@
-# Next.js WordPress-like Plugin System (⚠️ Experimental ⚠️)
+# Next.js WordPress-like Plugin System (⚠Experimental)
 
 > ⚠️⚠️ This is an experimental project, a proof-of-concept to bring WordPress like, file-based plugins to Next.js. ⚠️⚠️
 
