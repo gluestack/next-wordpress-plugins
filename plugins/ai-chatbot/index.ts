@@ -14,8 +14,8 @@ class AIChatbotPlugin implements IPlugin {
   }
 
   async boot() {
-    this.pluginSystem.registerRoute({
-      route: "/ai-chatbot",
+    this.pluginSystem.registerComponent({
+      name: "AIChatbotComponent",
       component: AIChatbot,
     });
   }

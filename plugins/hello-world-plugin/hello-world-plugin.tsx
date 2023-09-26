@@ -14,16 +14,14 @@ function HelloWorldPlugin() {
   if (!pluginSystem) return <div>PluginSystem not found</div>;
 
   return (
-    <View style={{ textAlign: "center" }}>
-      <AlertDialog isOpen={true}>
-        <AlertDialogBackdrop />
-        <AlertDialogContent p="$4">
-          <AlertDialogHeader alignSelf="center">
-            <Heading size="lg">Hello World !</Heading>
-          </AlertDialogHeader>
-        </AlertDialogContent>
-      </AlertDialog>
-    </View>
+    <AlertDialog isOpen={true}>
+      <AlertDialogBackdrop />
+      <AlertDialogContent p="$4">
+        <AlertDialogHeader alignSelf="center">
+          <Heading size="lg">Hello World !</Heading>
+        </AlertDialogHeader>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }
 
