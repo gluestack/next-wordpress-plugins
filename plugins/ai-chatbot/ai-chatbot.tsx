@@ -303,15 +303,20 @@ function AIChatbot() {
   const [visible, setVisible] = useState(false);
   return (
     <Box position="absolute" right="$0">
-      <Box h="100vh" w={480} borderRadius="$md">
+      <Box
+        w={visible ? 480 : "$0"}
+        sx={{
+          _web: {
+            h: "100vh",
+          },
+        }}
+        borderRadius="$md"
+      >
         <Fab
           h="$12"
           w="$12"
           p="$0"
           placement="bottom right"
-          isHovered={false}
-          isDisabled={false}
-          isPressed={false}
           onPress={() => setVisible(!visible)}
         >
           <FabIcon as={MessageCircleIcon} size="lg" />
