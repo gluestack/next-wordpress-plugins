@@ -1,11 +1,9 @@
 import {
   Button,
   ButtonIcon,
-  ButtonText,
   Center,
   CloseIcon,
   HStack,
-  Heading,
   Icon,
   Modal,
   ModalBackdrop,
@@ -14,13 +12,11 @@ import {
   ModalContent,
   ModalHeader,
   ShareIcon,
-  Text,
 } from "@gluestack-ui/themed";
 import React, { useState, useRef } from "react";
 import {
   FacebookIcon,
-  GoogleIcon,
-  LinkedIn,
+  LinkedInIcon,
   TwitterIcon,
 } from "./assets/icons/SocialShare";
 
@@ -55,7 +51,7 @@ function SocialShareButton({ caption }: { caption: string }) {
                 <ButtonIcon size="xl" as={TwitterIcon} />
               </Button>
               <Button variant="outline">
-                <ButtonIcon size="xl" as={LinkedIn} />
+                <ButtonIcon size="xl" as={LinkedInIcon} />
               </Button>
             </HStack>
           </ModalBody>

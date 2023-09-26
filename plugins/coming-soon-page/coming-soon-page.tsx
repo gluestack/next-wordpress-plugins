@@ -20,7 +20,7 @@ function ComingSoonPage({ caption }: { caption: string }) {
         <Image
           h="$96"
           w="$96"
-          source={require("./assets/images/appupdate.png")}
+          source={require("./assets/images/coming-soon.png")}
           alt="Alternet Text"
         />
         <HStack space="md" justifyContent="center">
