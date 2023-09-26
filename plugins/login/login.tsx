@@ -349,7 +349,6 @@ export default function SignIn() {
   const { pluginSystem } = useContext(PluginContext);
   if (!pluginSystem) return <div>PluginSystem not found</div>;
 
-  const { AIChatbotComponent } = pluginSystem.getAllComponents();
   return (
     <>
       <Box
@@ -402,7 +401,6 @@ export default function SignIn() {
             </Box>
           </VStack>
         </ScrollView>
-        <AIChatbotComponent />
       </Box>
     </>
   );

@@ -13,11 +13,12 @@ function ComingSoonPage({ caption }: { caption: string }) {
   const { pluginSystem } = useContext(PluginContext);
   if (!pluginSystem) return <div>PluginSystem not found</div>;
 
-  const { SocialShareButton, AIChatbotComponent } =
+  const { SocialShareButton, ConfettiComponent } =
     pluginSystem.getAllComponents();
 
   return (
-    <Center flex={1} h="100vh">
+    <Center flex={1} sx={{ _web: { h: "100vh" } }}>
+      <ConfettiComponent />
       <VStack>
         <Image
           h="$96"
@@ -30,7 +31,6 @@ function ComingSoonPage({ caption }: { caption: string }) {
           <SocialShareButton />
         </HStack>
       </VStack>
-      <AIChatbotComponent />
     </Center>
   );
 }

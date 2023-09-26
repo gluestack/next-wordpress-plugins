@@ -181,16 +181,6 @@ function ChatItem(props: ChatItem) {
         </VStack>
       ) : (
         <Box flex={1} alignItems="flex-end">
-          <Image
-            size="md"
-            w="$2/5"
-            maxWidth="$72"
-            h="$40"
-            rounded="$sm"
-            resizeMode="cover"
-            alt="alternative text"
-            source={props.imageUri}
-          />
           <HStack
             position="absolute"
             bottom="$1"
@@ -302,7 +292,7 @@ function MainContent() {
 function AIChatbot() {
   const [visible, setVisible] = useState(false);
   return (
-    <Box position="absolute" right="$0">
+    <Box position="absolute" right="$0" zIndex={1}>
       <Box
         w={visible ? 480 : "$0"}
         sx={{
