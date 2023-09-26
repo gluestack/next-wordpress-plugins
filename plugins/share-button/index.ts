@@ -1,10 +1,10 @@
 import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
 
-import ShareButton from "./share-button";
+import SocialShareButton from "./social-share-button";
 
-class ShareButtonPlugin implements IPlugin {
-  name = "share-button-plugin";
+class SocialShareButtonPlugin implements IPlugin {
+  name = "social-share-button-plugin";
   version = "0.0.1";
 
   pluginSystem: PluginSystem;
@@ -15,10 +15,10 @@ class ShareButtonPlugin implements IPlugin {
 
   async boot() {
     this.pluginSystem.registerComponent({
-      name: "ShareButton",
-      component: ShareButton,
+      name: "SocialShareButton",
+      component: SocialShareButton,
     });
   }
 }
 
-export default ShareButtonPlugin;
+export default SocialShareButtonPlugin;

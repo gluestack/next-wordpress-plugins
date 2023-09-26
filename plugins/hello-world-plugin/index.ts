@@ -1,6 +1,5 @@
 import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
-
 import HelloWorldPlugin from "./hello-world-plugin";
 
 class HelloWorldPagePlugin implements IPlugin {
