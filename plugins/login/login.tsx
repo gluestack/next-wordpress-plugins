@@ -43,14 +43,11 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Keyboard } from "react-native";
-// import { AlertTriangle, EyeIcon, EyeOffIcon } from "lucide-react-native";
 
 import {
   FacebookIcon,
   LinkedInIcon,
 } from "../share-button/assets/icons/SocialShare";
-
-// import GuestLayout from "../Layouts/GuestLayout";
 
 const signInSchema = z.object({
   email: z.string().min(1, "Email is required").email(),
@@ -94,7 +91,6 @@ const SignInForm = () => {
       },
     });
     reset();
-    // Implement your own onSubmit and navigation logic here.
   };
 
   const handleKeyPress = () => {
@@ -103,7 +99,7 @@ const SignInForm = () => {
   };
 
   const [showPassword, setShowPassword] = useState(false);
-  console.log(showPassword);
+
   const handleState = () => {
     setShowPassword((showState) => {
       return !showState;
@@ -147,7 +143,6 @@ const SignInForm = () => {
             )}
           />
           <FormControlError>
-            {/* <FormControlErrorIcon as={AlertTriangle} size="md" /> */}
             <FormControlErrorText>
               {errors?.email?.message}
             </FormControlErrorText>
@@ -183,12 +178,7 @@ const SignInForm = () => {
                   returnKeyType="done"
                   type={showPassword ? "text" : "password"}
                 />
-                <InputSlot
-                  onPress={() => {
-                    console.log("pressed");
-                  }}
-                  pr="$3"
-                >
+                <InputSlot onPress={handleState} pr="$3">
                   <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} />
                 </InputSlot>
               </Input>
@@ -261,90 +251,97 @@ function SideContainerWeb() {
 
 const Main = () => {
   return (
-    <Box
-      px="$4"
-      sx={{
-        "@md": {
-          px: "$8",
-          borderTopLeftRadius: "$none",
-          borderTopRightRadius: "$none",
-          borderBottomRightRadius: "$none",
-        },
-        _dark: { bg: "$backgroundDark800" },
-      }}
-      py="$8"
-      flex={1}
-      bg="$backgroundLight0"
-      justifyContent="space-between"
-      borderTopLeftRadius="$2xl"
-      borderTopRightRadius="$2xl"
-      borderBottomRightRadius="$none"
-    >
-      <Heading
-        display="none"
-        mb="$8"
-        sx={{
-          "@md": { display: "flex", fontSize: "$2xl" },
-        }}
-      >
-        Sign in to continue
-      </Heading>
-      <SignInForm />
-      <HStack my="$4" space="md" alignItems="center" justifyContent="center">
-        <Divider
-          w="$2/6"
-          bg="$backgroundLight200"
-          sx={{ _dark: { bg: "$backgroundDark700" } }}
-        />
-        <Text
-          fontWeight="$medium"
-          color="$textLight400"
-          sx={{ _dark: { color: "$textDark300" } }}
-        >
-          or
-        </Text>
-        <Divider
-          w="$2/6"
-          bg="$backgroundLight200"
-          sx={{ _dark: { bg: "$backgroundDark700" } }}
-        />
-      </HStack>
-      <HStack
-        mt="$6"
+    <>
+      <Box
+        px="$4"
         sx={{
           "@md": {
-            mt: "$4",
+            px: "$8",
+            borderTopLeftRadius: "$none",
+            borderTopRightRadius: "$none",
+            borderBottomRightRadius: "$none",
           },
+          _dark: { bg: "$backgroundDark800" },
         }}
-        mb="$9"
-        justifyContent="center"
-        alignItems="center"
-        space="lg"
+        py="$8"
+        flex={1}
+        bg="$backgroundLight0"
+        justifyContent="space-between"
+        borderTopLeftRadius="$2xl"
+        borderTopRightRadius="$2xl"
+        borderBottomRightRadius="$none"
       >
-        <Link href="">
-          <Button action="secondary" variant="link" onPress={() => {}}>
-            <ButtonIcon as={FacebookIcon} size="md" />
-          </Button>
-        </Link>
-        <Link href="">
-          <Button action="secondary" variant="link" onPress={() => {}}>
-            <ButtonIcon as={LinkedInIcon} size="md" />
-          </Button>
-        </Link>
-      </HStack>
-      <HStack space="xs" alignItems="center" justifyContent="center" mt="auto">
-        <Text
-          color="$textLight500"
-          fontSize="$sm"
-          sx={{ _dark: { color: "$textDark400" } }}
+        <Heading
+          display="none"
+          mb="$8"
+          sx={{
+            "@md": { display: "flex", fontSize: "$2xl" },
+          }}
         >
-          Don't have an account?
-        </Text>
-        <Link href="">
-          <LinkText fontSize="$sm">Sign up</LinkText>
-        </Link>
-      </HStack>
-    </Box>
+          Sign in to continue
+        </Heading>
+        <SignInForm />
+        <HStack my="$4" space="md" alignItems="center" justifyContent="center">
+          <Divider
+            w="$2/6"
+            bg="$backgroundLight200"
+            sx={{ _dark: { bg: "$backgroundDark700" } }}
+          />
+          <Text
+            fontWeight="$medium"
+            color="$textLight400"
+            sx={{ _dark: { color: "$textDark300" } }}
+          >
+            or
+          </Text>
+          <Divider
+            w="$2/6"
+            bg="$backgroundLight200"
+            sx={{ _dark: { bg: "$backgroundDark700" } }}
+          />
+        </HStack>
+        <HStack
+          mt="$6"
+          sx={{
+            "@md": {
+              mt: "$4",
+            },
+          }}
+          mb="$9"
+          justifyContent="center"
+          alignItems="center"
+          space="lg"
+        >
+          <Link href="">
+            <Button action="secondary" variant="link" onPress={() => {}}>
+              <ButtonIcon as={FacebookIcon} size="md" />
+            </Button>
+          </Link>
+          <Link href="">
+            <Button action="secondary" variant="link" onPress={() => {}}>
+              <ButtonIcon as={LinkedInIcon} size="md" />
+            </Button>
+          </Link>
+        </HStack>
+        <HStack
+          space="xs"
+          alignItems="center"
+          justifyContent="center"
+          mt="auto"
+        >
+          <Text
+            color="$textLight500"
+            fontSize="$sm"
+            sx={{ _dark: { color: "$textDark400" } }}
+          >
+            Don't have an account?
+          </Text>
+          <Link href="">
+            <LinkText fontSize="$sm">Sign up</LinkText>
+          </Link>
+        </HStack>
+      </Box>
+    </>
   );
 };
 
@@ -354,52 +351,59 @@ export default function SignIn() {
 
   const { AIChatbotComponent } = pluginSystem.getAllComponents();
   return (
-    <Box
-      sx={{
-        _web: {
-          height: "100vh",
-          overflow: "hidden",
-        },
-      }}
-      height="$full"
-    >
-      <StatusBar translucent backgroundColor="$none" barStyle="light-content" />
-      <ScrollView
-        flex={1}
-        contentContainerStyle={{
-          flexGrow: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+    <>
+      <Box
         sx={{
-          "@base": { _light: { bg: "$primary500" } },
-          "@md": { _light: { bg: "$primary900" }, p: "$8" },
-          _dark: { bg: "$backgroundDark900" },
+          _web: {
+            height: "100vh",
+            overflow: "hidden",
+          },
         }}
-        bounces={false}
+        height="$full"
       >
-        <VStack
-          w="$full"
+        <StatusBar
+          translucent
+          backgroundColor="$none"
+          barStyle="light-content"
+        />
+        <ScrollView
           flex={1}
-          overflow="hidden"
-          sx={{
-            "@md": {
-              maxWidth: 1016,
-              flexDirection: "row",
-              rounded: "$xl",
-              flex: undefined,
-            },
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: "center",
+            alignItems: "center",
           }}
+          sx={{
+            "@base": { _light: { bg: "$primary500" } },
+            "@md": { _light: { bg: "$primary900" }, p: "$8" },
+            _dark: { bg: "$backgroundDark900" },
+          }}
+          bounces={false}
         >
-          <Box display="none" sx={{ "@md": { display: "flex" } }} flex={1}>
-            <SideContainerWeb />
-          </Box>
-          <Box flex={1}>
-            <Main />
-          </Box>
-        </VStack>
-      </ScrollView>
-      <AIChatbotComponent />
-    </Box>
+          <VStack
+            w="$full"
+            flex={1}
+            overflow="hidden"
+            sx={{
+              "@md": {
+                maxWidth: 1016,
+                flexDirection: "row",
+                rounded: "$xl",
+                flex: undefined,
+              },
+            }}
+          >
+            <Box display="none" sx={{ "@md": { display: "flex" } }} flex={1}>
+              <SideContainerWeb />
+            </Box>
+
+            <Box flex={1}>
+              <Main />
+            </Box>
+          </VStack>
+        </ScrollView>
+        <AIChatbotComponent />
+      </Box>
+    </>
   );
 }
