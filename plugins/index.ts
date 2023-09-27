@@ -7,11 +7,12 @@ import ConfettiPlugin from "./confetti";
 
 const plugins = [
   SocialShareButtonPlugin,
-  ComingSoonPagePlugin,
+  ConfettiPlugin,
   AIChatbotPlugin,
+
   LoginPlugin,
   LogoutPlugin,
-  ConfettiPlugin,
+  ComingSoonPagePlugin,
 ];
 
 export default plugins;

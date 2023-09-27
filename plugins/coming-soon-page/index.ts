@@ -17,6 +17,7 @@ class ComingSoonPagePlugin implements IPlugin {
     this.pluginSystem.registerRoute({
       route: "/coming-soon",
       component: ComingSoonPage,
+    
     });
   }
 }

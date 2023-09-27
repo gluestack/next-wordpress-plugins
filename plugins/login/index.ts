@@ -16,6 +16,7 @@ class LoginPlugin implements IPlugin {
     this.pluginSystem.registerRoute({
       route: "/login",
       component: Login,
+      apiRoute: "/api/login",
     });
   }
 }
