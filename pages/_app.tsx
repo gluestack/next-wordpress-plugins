@@ -16,10 +16,7 @@ import {
   View,
 } from "@gluestack-ui/themed";
 import { config } from "../gluestack-ui.config";
-import { useEffect, useState } from "react";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { AIChatbotComponent, ConfettiComponent } =
@@ -38,11 +35,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   // return <View></View>;
   return (
-    <html lang="en" className="gs gs-light">
-      <body className={inter.className}>
-        <GluestackUIProvider config={config}>
-          <PluginContext.Provider value={{ pluginSystem: pluginSystem }}>
-            {/* <AlertDialog isOpen={true}>
+    <GluestackUIProvider config={config}>
+      <PluginContext.Provider value={{ pluginSystem: pluginSystem }}>
+        {/* <AlertDialog isOpen={true}>
           <AlertDialogBackdrop />
           <AlertDialogContent p="$4">
             <AlertDialogHeader alignSelf="center">
@@ -54,36 +49,30 @@ export default function App({ Component, pageProps }: AppProps) {
             </AlertDialogHeader>
           </AlertDialogContent>
         </AlertDialog> */}
-            {componentsArray.map((component, index): any => {
-              if (component.placement === "beforePage") {
-                console.log("BeforePage", ConfettiComponent);
-                return (
-                  <>
-                    {ConfettiComponent !== undefined ? (
-                      <ConfettiComponent />
-                    ) : null}
-                    {AIChatbotComponent !== undefined ? (
-                      <AIChatbotComponent />
-                    ) : null}
-                  </>
-                );
-              } else if (component.placement === "afterPage") {
-                return (
-                  <>
-                    {ConfettiComponent !== undefined ? (
-                      <ConfettiComponent />
-                    ) : null}
-                    {AIChatbotComponent !== undefined ? (
-                      <AIChatbotComponent />
-                    ) : null}
-                  </>
-                );
-              }
-            })}
-            <Component {...pageProps} />
-          </PluginContext.Provider>
-        </GluestackUIProvider>
-      </body>
-    </html>
+        {componentsArray.map((component, index): any => {
+          if (component.placement === "beforePage") {
+            console.log("BeforePage", ConfettiComponent);
+            return (
+              <>
+                {ConfettiComponent !== undefined ? <ConfettiComponent /> : null}
+                {AIChatbotComponent !== undefined ? (
+                  <AIChatbotComponent />
+                ) : null}
+              </>
+            );
+          } else if (component.placement === "afterPage") {
+            return (
+              <>
+                {ConfettiComponent !== undefined ? <ConfettiComponent /> : null}
+                {AIChatbotComponent !== undefined ? (
+                  <AIChatbotComponent />
+                ) : null}
+              </>
+            );
+          }
+        })}
+        <Component {...pageProps} />
+      </PluginContext.Provider>
+    </GluestackUIProvider>
   );
 }
