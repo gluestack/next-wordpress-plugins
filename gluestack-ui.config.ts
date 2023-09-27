@@ -54,6 +54,8 @@ const config = createConfig({
       "4/6": "66.666%",
       "5/6": "83.333%",
       full: "100%",
+      "550": 550,
+      "350": 350,
     },
     borderWidths: {
       ...defaultConfig.theme.tokens.borderWidths,
