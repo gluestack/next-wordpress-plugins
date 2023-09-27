@@ -17,7 +17,7 @@ class ConfettiPlugin implements IPlugin {
     this.pluginSystem.registerComponent({
       name: "ConfettiComponent",
       component: Confetti,
-      //   placement: "beforePage",
+      placement: "beforePage",
     });
   }
 }
