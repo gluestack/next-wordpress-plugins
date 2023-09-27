@@ -1,13 +1,7 @@
 import { useContext } from "react";
 import { PluginContext } from "../src/react/PluginContext";
 import {
-  AlertDialog,
-  AlertDialogBackdrop,
-  AlertDialogContent,
-  AlertDialogHeader,
   HStack,
-  Heading,
-  View,
   Image,
   Center,
   VStack,
@@ -20,14 +14,8 @@ export default function Home() {
   const { pluginSystem } = useContext(PluginContext);
 
   return (
-    <HStack backgroundColor="#270239" h={"100vh"}>
-      <Center
-        flex={1}
-        // bg="$primary500"
-        // sx={{
-        //   _dark: { bg: "$primary500" },
-        // }}
-      >
+    <HStack backgroundColor="$violet900" sx={{ _web: { h: "100vh" } }}>
+      <Center flex={1}>
         <Image
           size="2xl"
           w={550}
@@ -46,7 +34,7 @@ export default function Home() {
           h="$10"
           alt="gluestack-ui Pro"
           resizeMode="contain"
-          source={require("./assets/images/gluestackUiProLogo_web_light.svg")}
+          source={require("../assets/images/gluestackUiProLogo_web_light.svg")}
         />
 
         <Text
