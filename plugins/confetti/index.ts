@@ -18,6 +18,7 @@ class ConfettiPlugin implements IPlugin {
       name: "ConfettiComponent",
       component: Confetti,
       placement: "beforePage",
+      
     });
   }
 }

@@ -17,6 +17,7 @@ class AIChatbotPlugin implements IPlugin {
     this.pluginSystem.registerComponent({
       name: "AIChatbotComponent",
       component: AIChatbot,
+      placement: "beforePage",
     });
   }
 }

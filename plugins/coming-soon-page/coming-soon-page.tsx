@@ -1,6 +1,7 @@
 import { PluginContext } from "../../src/react/PluginContext";
 import React, { useContext } from "react";
 import { Image, Heading, HStack, Center, VStack } from "@gluestack-ui/themed";
+
 function PageText() {
   return (
     <Heading mt="$8" pb="$8" fontSize="$2xl" textAlign="center">
@@ -14,6 +15,7 @@ function ComingSoonPage({ caption }: { caption: string }) {
   if (!pluginSystem) return <div>PluginSystem not found</div>;
 
   const { SocialShareButton } = pluginSystem.getAllComponents();
+  console.log("ping440 ", SocialShareButton);
 
   return (
     <Center flex={1} sx={{ _web: { h: "100vh" } }}>
@@ -26,7 +28,7 @@ function ComingSoonPage({ caption }: { caption: string }) {
         />
         <HStack space="md" justifyContent="center">
           <PageText />
-          <SocialShareButton />
+          {SocialShareButton !== undefined ? <SocialShareButton /> : null}
         </HStack>
       </VStack>
     </Center>

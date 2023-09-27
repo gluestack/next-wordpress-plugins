@@ -17,6 +17,7 @@ class SocialShareButtonPlugin implements IPlugin {
     this.pluginSystem.registerComponent({
       name: "SocialShareButton",
       component: SocialShareButton,
+      placement: "afterPage",
     });
   }
 }

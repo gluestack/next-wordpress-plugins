@@ -22,12 +22,6 @@ export class PluginSystem {
 
   registerComponent(component: IComponentDefinition) {
     this.componentStore.registerComponent(component);
-    if (component.placement === "afterPage") {
-      console.log("After pageeeeee");
-    }
-    if (component.placement === "beforePage") {
-      console.log("BeforePageeeee");
-    }
   }
 
   registerRoute(routeDefinition: IRouteDefinition) {

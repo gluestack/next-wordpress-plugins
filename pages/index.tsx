@@ -50,7 +50,7 @@ export default function Home() {
         </Heading>
 
         <Text w="$3/5" pt="$16" size="lg">
-          Partner with SHIFT and build your brand with our bold & original
+          Partner with GeekyAnts and build your brand with our bold & original
           marketplace strategies. All delivered by our team of trusted experts.
         </Text>
         <Link href={"/login"} style={{ textDecorationLine: "none" }}>

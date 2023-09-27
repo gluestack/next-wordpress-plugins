@@ -47,7 +47,7 @@ import { Keyboard } from "react-native";
 import {
   FacebookIcon,
   LinkedInIcon,
-} from "../share-button/assets/icons/SocialShare";
+} from "../social-share-button/assets/icons/SocialShare";
 
 const signInSchema = z.object({
   email: z.string().min(1, "Email is required").email(),

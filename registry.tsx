@@ -25,6 +25,8 @@ export default function StyledJsxRegistry({
       isServerInserted.current = true;
       const styles = [getStyleElement(), jsxStyleRegistry.styles(), ...flush()];
       jsxStyleRegistry.flush();
+
+      console.log(styles, ">>>>>");
       return <>{styles}</>;
     }
   });
