@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 export default function All() {
   const router = useRouter();
   const routeDefinition = pluginSystem.getAllRoutes()[router.asPath];
-
   if (routeDefinition) {
     return <routeDefinition.component />;
   }

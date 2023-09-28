@@ -48,6 +48,7 @@ import {
   FacebookIcon,
   LinkedInIcon,
 } from "../social-share-button/assets/icons/SocialShare";
+import router from "next/router";
 
 const signInSchema = z.object({
   email: z.string().min(1, "Email is required").email(),
@@ -76,22 +77,59 @@ const SignInForm = () => {
     resolver: zodResolver(signInSchema),
   });
   const [isEmailFocused, setIsEmailFocused] = useState(false);
-
+  const [message, setMessage] = useState("");
   const toast = useToast();
 
-  const onSubmit = (_data: SignInSchemaType) => {
-    
-    toast.show({
-      placement: "bottom right",
-      render: ({ id }) => {
-        return (
-          <Toast nativeID={id} variant="accent" action="success">
-            <ToastTitle>Signed in successfully</ToastTitle>
-          </Toast>
-        );
-      },
-    });
-    reset();
+  const onSubmit = async (_data: SignInSchemaType) => {
+    const email = _data.email;
+    const password = _data.password;
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.status === 200) {
+        router.push("/coming-soon");
+      } else if (response.status === 401) {
+        setMessage("Invalid credentials");
+      } else {
+        setMessage("An error occurred");
+      }
+      if (response.status === 200) {
+        router.push("/coming-soon");
+        reset();
+      } else {
+        toast.show({
+          placement: "bottom right",
+          render: ({ id }) => {
+            return (
+              <Toast nativeID={id} variant="accent" action="error">
+                <ToastTitle>Invalid credentials</ToastTitle>
+              </Toast>
+            );
+          },
+        });
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      setMessage("An error occurred");
+    }
+
+    // toast.show({
+    //   placement: "bottom right",
+    //   render: ({ id }) => {
+    //     return (
+    //       <Toast nativeID={id} variant="accent" action="success">
+    //         <ToastTitle>Signed in successfully</ToastTitle>
+    //       </Toast>
+    //     );
+    //   },
+    // });
+    // reset();
   };
 
   const handleKeyPress = () => {

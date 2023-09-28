@@ -16,8 +16,39 @@ class LoginPlugin implements IPlugin {
     this.pluginSystem.registerRoute({
       route: "/login",
       component: Login,
-      apiRoute: "/api/login",
     });
+
+    this.pluginSystem.registerApiRoute({
+      route: "/api/login",
+      handler: function (req: any, res: any) {
+        const { email, password } = req.body;
+        if (req.method === "POST") {
+          const users = [
+            { id: 1, username: "xyz@gmail.com", userPassword: "Xyz@12345" },
+          ];
+
+          const user = users.find(
+            (u) => u.username === email && u.userPassword === password
+          );
+
+          if (user) {
+            res.setHeader(
+              "Set-Cookie",
+              `loggedin=true; Expires=2024-03-12T12:49:11.479Z; Path=/; SameSite=Strict; HttpOnly`
+            );
+            return res.status(200).json({ message: "Login successful" });
+          } else {
+            return res.status(401).json({ message: "Invalid credentials" });
+          }
+        } else {
+          return res.status(405).json({ message: "Method not allowed" });
+        }
+      },
+    });
+
+    // this.pluginSystem.registerMiddleware(function(){
+
+    // })
   }
 }
 

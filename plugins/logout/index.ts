@@ -17,6 +17,20 @@ class LogoutPlugin implements IPlugin {
       route: "/logout",
       component: Logout,
     });
+    this.pluginSystem.registerApiRoute({
+      route: "/api/logout",
+      handler: function (req: any, res: any) {
+        if (req.method === "POST") {
+          res.setHeader(
+            "Set-Cookie",
+            "loggedin=false; Max-Age=0; Path=/; SameSite=Strict; HttpOnly"
+          );
+         return  res.status(200).json({ message: "Logout successful" });
+        } else {
+         return res.status(405).json({ message: "Method not allowed" });
+        }
+      },
+    });
   }
 }
 

@@ -26,7 +26,6 @@ export default function StyledJsxRegistry({
       const styles = [getStyleElement(), jsxStyleRegistry.styles(), ...flush()];
       jsxStyleRegistry.flush();
 
-      // console.log(styles, ">>>>>");
       return <>{styles}</>;
     }
   });
