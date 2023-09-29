@@ -1,39 +1,19 @@
-// //middleware store
-// import React from "react";
-// import { IMiddlewareDefinition } from "./IMiddlewareDefinintion";
-// class MiddlewareStore {
-//   registeredRoutes: { [key: string]: IMiddlewareDefinition };
+import React from "react";
+import { IMiddlewareDefinition } from "./IMiddlewareDefinition";
+class MiddlewareStore {
+  registeredMiddlewares: Array<any>;
 
-//   constructor() {
-//     this.registeredRoutes = {};
-//   }
-//   registerRoute(routeDefinition: IMiddlewareDefinition) {
-//     this.registeredRoutes[routeDefinition.route] = routeDefinition;
-//   }
+  constructor() {
+    this.registeredMiddlewares = [];
+  }
 
-//   getRoute(route: string) {
-//     return this.registeredRoutes[route];
-//   }
+  registerMiddleware(middlewareDefinition: any) {
+    this.registeredMiddlewares.push(middlewareDefinition);
+  }
 
-//   // getApiRoute(apiRoute: string) {
-//     // console.log(apiRoute, " api route");
-//   //   return this.registeredRoutes[apiRoute];
-//   // }
+  getAllRegisteredMiddleware() {
+    return this.registeredMiddlewares;
+  }
+}
 
-//   getAllRouteDefinitions() {
-//     return this.registeredRoutes;
-//   }
-
-//   /*  getAllComponents(): { [key: string]: React.FC } {
-//     const that = this;
-//     const ret: any = {};
-
-//     Object.keys(this.registeredRoutes).forEach(function (key, index) {
-//       ret[key] = that.registeredRoutes[key].component;
-//     });
-
-//     return ret;
-//   }*/
-// }
-
-// export default RouteStore;
+export default MiddlewareStore;

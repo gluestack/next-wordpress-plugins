@@ -1,6 +1,8 @@
 import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
 import Login from "./login";
+// import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
 class LoginPlugin implements IPlugin {
   name = "login-page-plugin";
@@ -46,9 +48,21 @@ class LoginPlugin implements IPlugin {
       },
     });
 
-    // this.pluginSystem.registerMiddleware(function(){
-
-    // })
+    this.pluginSystem.registerMiddleware({
+      handler: function (request: any) {
+        let isLogin = request.cookies.get("loggedin");
+        if (!isLogin) {
+          if (request.nextUrl.pathname !== "/login") {
+            return NextResponse.redirect(new URL("/login", request.url));
+          }
+          return NextResponse.next();
+        } else {
+          if (request.nextUrl.pathname === "/login") {
+            return NextResponse.redirect(new URL("/coming-soon", request.url));
+          }
+        }
+      },
+    });
   }
 }
 

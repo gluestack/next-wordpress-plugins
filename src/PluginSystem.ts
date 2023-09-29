@@ -3,21 +3,26 @@ import PluginStore from "./plugin-system/core/PluginStore";
 import RouteStore from "./plugin-system/core/RouteStore";
 import ComponentStore from "./plugin-system/core/ComponentStore";
 import ApiRouteStore from "./plugin-system/core/ApiRouteStore";
+import MiddlewareStore from "./plugin-system/core/MiddlewareStore";
 import { IComponentDefinition } from "./plugin-system/core/IComponentDefinition";
 import { IRouteDefinition } from "./plugin-system/core/IRouteDefinition";
 import { IApiRouteDefinition } from "./plugin-system/core/IApiRouteDefinition";
+import { IMiddlewareDefinition } from "./plugin-system/core/IMiddlewareDefinition";
+import middleware from "./middleware";
 
 export class PluginSystem {
   pluginStore: PluginStore;
   componentStore: ComponentStore;
   routeStore: RouteStore;
   apiRouteStore: ApiRouteStore;
+  middlewareStore: MiddlewareStore;
 
   constructor() {
     this.pluginStore = new PluginStore();
     this.componentStore = new ComponentStore();
     this.routeStore = new RouteStore();
     this.apiRouteStore = new ApiRouteStore();
+    this.middlewareStore = new MiddlewareStore();
   }
 
   registerPlugin(plugin: any) {
@@ -36,6 +41,10 @@ export class PluginSystem {
     this.apiRouteStore.registerApiRoute(apiRouteDefinition);
   }
 
+  registerMiddleware(middlewareDefinition: any) {
+    return this.middlewareStore.registerMiddleware(middlewareDefinition);
+  }
+
   getComponentDefinition(name: string) {
     return this.componentStore.getComponent(name);
   }
@@ -49,7 +58,7 @@ export class PluginSystem {
   }
 
   getAllApiRoutes() {
-    return this.apiRouteStore?.getAllApiRouteDefinitions();
+    return this.apiRouteStore.getAllApiRouteDefinitions();
   }
 
   bootPlugins() {
