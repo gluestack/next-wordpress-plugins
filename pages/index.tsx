@@ -25,6 +25,7 @@ export default function Home() {
           source={{
             uri: "https://www.datocms-assets.com/75941/1670871011-next-js-vs-wordpress-vista-actual.png?fit=crop&fm=webp&h=490&w=734",
           }}
+          alt="banner-image"
         />
       </Center>
 

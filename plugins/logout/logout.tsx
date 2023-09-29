@@ -46,6 +46,7 @@ const Logout = () => {
               source={{
                 uri: "https://geekyants.com/_next/image/?url=https%3A%2F%2Fstatic-cdn.geekyants.com%2Fuser%2F11%2F2022-09-04%2F166229332377190.jpg&w=3840&q=75",
               }}
+              alt="avatar-image"
             />
           </Avatar>
           <VStack>
