@@ -17,6 +17,7 @@ class LogoutPlugin implements IPlugin {
       route: "/logout",
       component: Logout,
     });
+    
     this.pluginSystem.registerApiRoute({
       route: "/api/logout",
       handler: function (req: any, res: any) {

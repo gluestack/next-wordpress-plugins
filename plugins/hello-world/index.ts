@@ -14,7 +14,7 @@ class HelloWorldPagePlugin implements IPlugin {
 
   async boot() {
     if (typeof window !== "undefined") {
-      alert("Hello World");
+      alert("Hello world!");
     }
   }
 }

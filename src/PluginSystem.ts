@@ -9,6 +9,7 @@ import { IRouteDefinition } from "./plugin-system/core/IRouteDefinition";
 import { IApiRouteDefinition } from "./plugin-system/core/IApiRouteDefinition";
 import { IMiddlewareDefinition } from "./plugin-system/core/IMiddlewareDefinition";
 import middleware from "./middleware";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export class PluginSystem {
   pluginStore: PluginStore;
@@ -41,8 +42,12 @@ export class PluginSystem {
     this.apiRouteStore.registerApiRoute(apiRouteDefinition);
   }
 
-  registerMiddleware(middlewareDefinition: any) {
-    return this.middlewareStore.registerMiddleware(middlewareDefinition);
+  registerMiddlewares(middlewareDefinition: any) {
+    return this.middlewareStore.registerMiddlewares(middlewareDefinition);
+  }
+
+  getAllRegisteredMiddleware(middlewareDefinition: any) {
+    return this.middlewareStore.registerMiddlewares(middlewareDefinition);
   }
 
   getComponentDefinition(name: string) {
@@ -61,10 +66,11 @@ export class PluginSystem {
     return this.apiRouteStore.getAllApiRouteDefinitions();
   }
 
-  bootPlugins() {
+  bootPlugins(req: NextApiRequest, res: NextApiResponse) {
     this.pluginStore.registeredPlugins.forEach((plugin) => {
       plugin.boot();
       this.pluginStore.bootedPlugins.push(plugin);
     });
+    middleware(req, res);
   }
 }
