@@ -3,8 +3,7 @@ import pluginSystem from "../bootstrap";
 console.log("minayo minayo");
 
 export default function middleware(req: NextApiRequest, res: NextApiResponse) {
-  const middlewareDefinition =
-    pluginSystem.middlewareStore.registeredMiddlewares;
+  const middlewareDefinition = "dsjncvksd";
   console.log("hi form rishav ", middlewareDefinition);
 
   // const middlewareDefinition =

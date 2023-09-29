@@ -48,7 +48,7 @@ class LoginPlugin implements IPlugin {
       },
     });
 
-    this.pluginSystem.registerMiddleware({
+    this.pluginSystem.registerMiddlewares({
       handler: function (request: any) {
         let isLogin = request.cookies.get("loggedin");
         if (!isLogin) {
