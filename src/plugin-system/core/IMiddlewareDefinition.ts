@@ -1,3 +1,3 @@
 export interface IMiddlewareDefinition {
-  handler: (req: any, res: any) => any;
+  handler: (request: any, response: any) => any;
 }

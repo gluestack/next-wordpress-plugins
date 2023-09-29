@@ -14,11 +14,9 @@ import {
   Box,
   CheckIcon,
   Checkbox,
-  Icon,
   ToastTitle,
   InputField,
   FormControlError,
-  FormControlErrorIcon,
   FormControlErrorText,
   InputIcon,
   FormControlHelper,
@@ -29,7 +27,6 @@ import {
   ButtonIcon,
   Image,
   Divider,
-  ArrowLeftIcon,
   Heading,
   LinkText,
   InputSlot,
@@ -48,7 +45,7 @@ import {
   FacebookIcon,
   LinkedInIcon,
 } from "../social-share-button/assets/icons/SocialShare";
-import router from "next/router";
+import router, { useRouter } from "next/router";
 
 const signInSchema = z.object({
   email: z.string().min(1, "Email is required").email(),
@@ -72,18 +69,20 @@ const SignInForm = () => {
     control,
     formState: { errors },
     handleSubmit,
+
     reset,
   } = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
   });
+
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [message, setMessage] = useState("");
-  const toast = useToast();
+
+  const router = useRouter();
 
   const onSubmit = async (_data: SignInSchemaType) => {
     const email = _data.email;
     const password = _data.password;
-
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -94,42 +93,17 @@ const SignInForm = () => {
       });
       if (response.status === 200) {
         router.push("/coming-soon");
+        reset();
       } else if (response.status === 401) {
         setMessage("Invalid credentials");
+      } else if (response.status === 500) {
+        setMessage("Server error. Please try again later.");
       } else {
-        setMessage("An error occurred");
-      }
-      if (response.status === 200) {
-        router.push("/coming-soon");
-        reset();
-      } else {
-        toast.show({
-          placement: "bottom right",
-          render: ({ id }) => {
-            return (
-              <Toast nativeID={id} variant="accent" action="error">
-                <ToastTitle>Invalid credentials</ToastTitle>
-              </Toast>
-            );
-          },
-        });
+        setMessage("An error occurred. Please try again later.");
       }
     } catch (error) {
-      console.error("Error logging in:", error);
-      setMessage("An error occurred");
+      setMessage(`error ${error}`);
     }
-
-    // toast.show({
-    //   placement: "bottom right",
-    //   render: ({ id }) => {
-    //     return (
-    //       <Toast nativeID={id} variant="accent" action="success">
-    //         <ToastTitle>Signed in successfully</ToastTitle>
-    //       </Toast>
-    //     );
-    //   },
-    // });
-    // reset();
   };
 
   const handleKeyPress = () => {
@@ -224,7 +198,6 @@ const SignInForm = () => {
             )}
           />
           <FormControlError>
-            {/* <FormControlErrorIcon as={AlertTriangle} size="sm" /> */}
             <FormControlErrorText>
               {errors?.password?.message}
             </FormControlErrorText>
@@ -256,6 +229,9 @@ const SignInForm = () => {
           </Checkbox>
         )}
       />
+      {message && message.length ? (
+        <Text color="$error500">{message}</Text>
+      ) : null}
       <Button
         variant="solid"
         size="lg"
@@ -385,9 +361,6 @@ const Main = () => {
 };
 
 export default function SignIn() {
-  const { pluginSystem } = useContext(PluginContext);
-  if (!pluginSystem) return <div>PluginSystem not found</div>;
-
   return (
     <>
       <Box

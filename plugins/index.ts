@@ -1,7 +1,7 @@
 import ComingSoonPagePlugin from "./coming-soon-page";
 import SocialShareButtonPlugin from "./social-share-button";
 import AIChatbotPlugin from "./ai-chatbot";
-import LoginPlugin from "./login";
+import AuthPlugin from "./auth";
 import LogoutPlugin from "./logout";
 import ConfettiPlugin from "./confetti";
 
@@ -10,7 +10,7 @@ const plugins = [
   ConfettiPlugin,
   AIChatbotPlugin,
 
-  LoginPlugin,
+  AuthPlugin,
   LogoutPlugin,
   ComingSoonPagePlugin,
 ];

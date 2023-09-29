@@ -14,6 +14,7 @@ function ComingSoonPage({ caption }: { caption: string }) {
   const { pluginSystem } = useContext(PluginContext);
   if (!pluginSystem) return <div>PluginSystem not found</div>;
 
+  //@ts-ignore
   const { SocialShareButton } = pluginSystem.getAllComponents();
 
   return (

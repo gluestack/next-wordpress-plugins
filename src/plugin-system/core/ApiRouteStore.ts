@@ -9,7 +9,6 @@ class ApiRouteStore {
   }
 
   registerApiRoute(apiRouteDefinition: IApiRouteDefinition) {
-    //jo bhi props hum ek api route mei define krege 
     this.registeredApiRoutes[apiRouteDefinition.route] = apiRouteDefinition;
   }
 

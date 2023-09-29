@@ -44,16 +44,16 @@ const Logout = () => {
             <AvatarFallbackText>SS</AvatarFallbackText>
             <AvatarImage
               source={{
-                uri: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+                uri: "https://geekyants.com/_next/image/?url=https%3A%2F%2Fstatic-cdn.geekyants.com%2Fuser%2F11%2F2022-09-04%2F166229332377190.jpg&w=3840&q=75",
               }}
             />
           </Avatar>
           <VStack>
             <Heading size="sm" color="$textLight0">
-              Ronald Richards
+              Sanket Sahu
             </Heading>
             <Text size="sm" color="$textLight0">
-              Nursing Assistant
+              CEO GeekyAnts
             </Text>
           </VStack>
         </HStack>

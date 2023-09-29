@@ -30,7 +30,6 @@ export default function Home() {
 
       <VStack flex={1} justifyContent="center" ml="$5">
         <Image
-          // bgColor="$red500"
           mb="$2"
           w="$80"
           h="$10"

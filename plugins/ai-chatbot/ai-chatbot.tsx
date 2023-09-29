@@ -13,7 +13,6 @@ import {
   Pressable,
   SearchIcon,
   VStack,
-  Image,
   CheckIcon,
   InputField,
   Input,

@@ -2,19 +2,17 @@ import React from "react";
 import { IMiddlewareDefinition } from "./IMiddlewareDefinition";
 
 class MiddlewareStore {
-  registeredMiddlewares: Array<any>;
+  registeredMiddlewares: Array<IMiddlewareDefinition>;
 
   constructor() {
     this.registeredMiddlewares = [];
   }
 
-  registerMiddlewares(middlewareDefinition: any) {
-    console.log("hello world 1");
+  registerMiddlewares(middlewareDefinition: IMiddlewareDefinition) {
     this.registeredMiddlewares.push(middlewareDefinition);
   }
 
   getAllRegisteredMiddleware() {
-    console.log("hi all come");
     return this.registeredMiddlewares;
   }
 }
