@@ -1,10 +1,11 @@
 import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
-import Auth from "./auth";
-import { NextRequest, NextResponse } from "next/server";
+import Login from "./login";
+import Logout from "./logout";
+import { NextResponse } from "next/server";
 
 class AuthPlugin implements IPlugin {
-  name = "login-page-plugin";
+  name = "auth-page-plugin";
   version = "0.0.1";
 
   pluginSystem: PluginSystem;
@@ -16,7 +17,12 @@ class AuthPlugin implements IPlugin {
   async boot() {
     this.pluginSystem.registerRoute({
       route: "/login",
-      component: Auth,
+      component: Login,
+    });
+
+    this.pluginSystem.registerRoute({
+      route: "/logout",
+      component: Logout,
     });
 
     this.pluginSystem.registerApiRoute({
@@ -68,6 +74,21 @@ class AuthPlugin implements IPlugin {
       },
     });
 
+    this.pluginSystem.registerApiRoute({
+      route: "/api/logout",
+      handler: function (req: any, res: any) {
+        if (req.method === "POST") {
+          res.setHeader(
+            "Set-Cookie",
+            "loggedin=false; Max-Age=0; Path=/; SameSite=Strict; HttpOnly"
+          );
+          return res.status(200).json({ message: "Logout successful" });
+        } else {
+          return res.status(405).json({ message: "Method not allowed" });
+        }
+      },
+    });
+
     this.pluginSystem.registerMiddlewares({
       handler: function (request: any) {
         let isLogin = request.cookies.get("loggedin");
@@ -83,6 +104,7 @@ class AuthPlugin implements IPlugin {
           if (request.nextUrl.pathname === "/login") {
             return NextResponse.redirect(new URL("/coming-soon", request.url));
           }
+          return NextResponse.next();
         }
       },
     });

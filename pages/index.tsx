@@ -17,16 +17,33 @@ export default function Home() {
   return (
     <HStack backgroundColor="$primary900" sx={{ _web: { h: "100vh" } }}>
       <Center flex={1}>
-        <Image
-          size="2xl"
-          w="$550"
-          h="$350"
-          rounded="$md"
-          source={{
-            uri: "https://www.datocms-assets.com/75941/1670871011-next-js-vs-wordpress-vista-actual.png?fit=crop&fm=webp&h=490&w=734",
-          }}
-          alt="banner-image"
-        />
+        <HStack alignItems="center">
+          <Image
+            size="2xl"
+            w={150}
+            h={150}
+            rounded="$md"
+            source={require("../assets/images/wordpress.png")}
+            alt="banner-image"
+          />
+          <Image
+            mx="$12"
+            size="2xl"
+            w={100}
+            h={100}
+            rounded="$md"
+            source={require("../assets/images/arrow.png")}
+            alt="banner-image"
+          />
+          <Image
+            size="2xl"
+            w={200}
+            h={100}
+            rounded="$md"
+            source={require("../assets/images/next.png")}
+            alt="banner-image"
+          />
+        </HStack>
       </Center>
 
       <VStack flex={1} justifyContent="center" ml="$5">
@@ -50,12 +67,8 @@ export default function Home() {
           Next.js Wordpress-like plugin system: An experiment
         </Heading>
 
-        <Text w="$3/5" pt="$16" size="lg">
-          Partner with GeekyAnts and build your brand with our bold & original
-          marketplace strategies. All delivered by our team of trusted experts.
-        </Text>
         <Link href={"/login"} style={{ textDecorationLine: "none" }}>
-          <Button mt="$16" size="lg" w="$1/3" rounded="$3xl" variant="solid">
+          <Button mt="$12" size="lg" w="$1/3" rounded="$3xl" variant="solid">
             <ButtonText>Sign In </ButtonText>
           </Button>
         </Link>
