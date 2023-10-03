@@ -10,9 +10,10 @@ import {
   AvatarImage,
   AvatarFallbackText,
 } from "@gluestack-ui/themed";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { PluginContext } from "../../src/react/PluginContext";
 import { useRouter } from "next/router";
+
 const Logout = () => {
   const router = useRouter();
 

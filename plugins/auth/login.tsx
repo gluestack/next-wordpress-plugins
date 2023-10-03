@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { PluginContext } from "../../src/react/PluginContext";
+import React, { useState } from "react";
 import {
   Center,
   Button,
@@ -9,12 +8,9 @@ import {
   Text,
   VStack,
   Link,
-  useToast,
-  Toast,
   Box,
   CheckIcon,
   Checkbox,
-  ToastTitle,
   InputField,
   FormControlError,
   FormControlErrorText,
