@@ -1,13 +1,11 @@
 import React from "react";
 import { IRouteDefinition } from "./IRouteDefinition";
-
 class RouteStore {
   registeredRoutes: { [key: string]: IRouteDefinition };
 
   constructor() {
     this.registeredRoutes = {};
   }
-
   registerRoute(routeDefinition: IRouteDefinition) {
     this.registeredRoutes[routeDefinition.route] = routeDefinition;
   }

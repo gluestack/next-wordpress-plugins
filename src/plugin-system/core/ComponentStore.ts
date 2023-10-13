@@ -16,14 +16,15 @@ class ComponentStore {
     return this.registeredComponents[name];
   }
 
-  getAllComponents(): { [key: string]: React.FC } {
+  getAllComponents(placementString: string): { [key: string]: React.FC } {
     const that = this;
     const ret: any = {};
 
     Object.keys(this.registeredComponents).forEach(function (key, index) {
-      ret[key] = that.registeredComponents[key].component;
+      if (that.registeredComponents[key].placement === placementString) {
+        ret[key] = that.registeredComponents[key].component;
+      }
     });
-
     return ret;
   }
 }

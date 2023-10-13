@@ -1,10 +1,10 @@
 import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
 
-import ComingSoonPage from "./coming-soon-page";
+import AIChatbot from "./ai-chatbot";
 
-class ComingSoonPagePlugin implements IPlugin {
-  name = "coming-soon-page-plugin";
+class AIChatbotPlugin implements IPlugin {
+  name = "ai-chatbot-page-plugin";
   version = "0.0.1";
 
   pluginSystem: PluginSystem;
@@ -14,12 +14,12 @@ class ComingSoonPagePlugin implements IPlugin {
   }
 
   async boot() {
-    this.pluginSystem.registerRoute({
-      route: "/coming-soon",
-      component: ComingSoonPage,
-    
+    this.pluginSystem.registerComponent({
+      name: "AIChatbotComponent",
+      component: AIChatbot,
+      placement: "beforePage",
     });
   }
 }
 
-export default ComingSoonPagePlugin;
+export default AIChatbotPlugin;

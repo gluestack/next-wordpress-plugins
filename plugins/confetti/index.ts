@@ -1,10 +1,10 @@
 import { PluginSystem } from "@/src/PluginSystem";
 import { IPlugin } from "../../src/plugin-system/core/IPlugin";
 
-import ShareButton from "./share-button";
+import Confetti from "./confetti";
 
-class ShareButtonPlugin implements IPlugin {
-  name = "share-button-plugin";
+class ConfettiPlugin implements IPlugin {
+  name = "confetti-plugin";
   version = "0.0.1";
 
   pluginSystem: PluginSystem;
@@ -15,10 +15,12 @@ class ShareButtonPlugin implements IPlugin {
 
   async boot() {
     this.pluginSystem.registerComponent({
-      name: "ShareButton",
-      component: ShareButton,
+      name: "ConfettiComponent",
+      component: Confetti,
+      placement: "beforePage",
+      
     });
   }
 }
 
-export default ShareButtonPlugin;
+export default ConfettiPlugin;
